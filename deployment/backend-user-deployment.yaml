@@ -83,5 +83,5 @@ spec:
       restartPolicy: Always
       volumes:
       - name: aws-secret
-    secret:
-      secretName: aws-secret
+        secret:
+          secretName: aws-secret

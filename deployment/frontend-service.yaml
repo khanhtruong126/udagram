@@ -6,7 +6,8 @@ metadata:
   name: frontend
 spec:
   ports:
-  - port: 8080
-    protocol: TCP
+    - name: http
+      port: 8100
+      targetPort: 80
   selector:
-    run: frontend
+    service: frontend
