@@ -20,17 +20,19 @@ spec:
         imagePullPolicy: Always
         resources:
           requests:
+            cpu: "200m"
             memory: "512Mi"
-            cpu: "150m"
-          limits:
-            memory: "1024Mi"
-            cpu: "300m"
         env:
         - name: URL
           valueFrom:
             configMapKeyRef:
               name: env-config
               key: URL
+        - name: JWT_SECRET
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: JWT_SECRET
         - name: AWS_BUCKET
           valueFrom:
             configMapKeyRef:
@@ -46,11 +48,6 @@ spec:
             configMapKeyRef:
               name: env-config
               key: AWS_REGION
-        - name: JWT_SECRET
-          valueFrom:
-            configMapKeyRef:
-              name: env-config
-              key: JWT_SECRET
         - name: POSTGRES_DB
           valueFrom:
             configMapKeyRef:
@@ -71,11 +68,6 @@ spec:
             secretKeyRef:
               name: env-secret
               key: POSTGRES_USERNAME
-        - name: NODE_OPTIONS
-          valueFrom:
-            configMapKeyRef:
-              name: env-config
-              key: NODE_OPTIONS
         volumeMounts:
         - name: aws-secret
           mountPath: "/root/.aws/"
