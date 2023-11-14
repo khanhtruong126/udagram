@@ -3,9 +3,11 @@ kind: ConfigMap
 metadata:
   name: env-config
 data:
+  POSTGRES_USERNAME: postgres
+  POSTGRES_PASSWORD: '12345678'
   POSTGRES_HOST: database-cloud-dev.cbaqlxtfteiy.us-east-1.rds.amazonaws.com
   POSTGRES_DB: postgres
-  AWS_BUCKET: arn:aws:s3:::cloud-dev-udacity-bucket
+  AWS_BUCKET: cloud-dev-udacity-bucket
   AWS_PROFILE: default
   AWS_REGION: us-east-1
   JWT_SECRET: testing
